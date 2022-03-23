@@ -16,5 +16,6 @@ namespace EntityLayer.Concrete
         public bool CategoryStatus { get; set; }
         //İlişkili tablolarda kolon silmek hatalara sebep olur. o yüzden category'i aktif pasif durumuna getireceğiz.
 
+        public List<Blog> Blogs { get; set; }
     }
 }
