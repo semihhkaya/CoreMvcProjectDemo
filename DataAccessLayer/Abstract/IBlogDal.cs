@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Abstract
 {
-    public interface IBlogDal:IGenericDal<Blog>
+    public interface IBlogDal:IGenericDal<Blog> //Sadece ilgili entity'ee ait operasyonlar buraya yazılır
     {
-
+        List<Blog> GetListWithCategory();
     }
 }
