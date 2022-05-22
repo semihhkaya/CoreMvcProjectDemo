@@ -68,6 +68,8 @@ namespace CoreMvcProjectDemo
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
+            app.UseAuthentication();
+            
             app.UseSession(); //Session
 
             app.UseRouting();

@@ -10,7 +10,6 @@ namespace CoreMvcProjectDemo.Controllers
     //Attribute'yi Controllerın üzerine eklersek tüm actionlara aynı işlemi uygular Action üstüne eklersek sadece ilgili actiona uygular
     public class WriterController : Controller
     {
-        [AllowAnonymous]
         public IActionResult Index()
         {
             return View();
@@ -23,6 +22,16 @@ namespace CoreMvcProjectDemo.Controllers
         public IActionResult WriterMail()
         {
             return View();
+        }
+        [AllowAnonymous]
+        public IActionResult Test()
+        {
+            return View();
+        }
+        [AllowAnonymous]
+        public PartialViewResult WriterNavbarPartial()
+        {
+            return PartialView();
         }
     }
 }
