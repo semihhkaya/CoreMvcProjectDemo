@@ -7,13 +7,8 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Abstract
 {
-    public interface IBlogService
-    {
-        void AddBlog(Blog blog);
-        void DeleteBlog(Blog blog);
-        void UpdateBlog(Blog blog);
-        List<Blog> GetList();
-        Blog GetById(int id);
+    public interface IBlogService : IGenericService<Blog>
+    {//Bloğa özel operasyonlar generic service yerine burda tanımlanabilir. Generic service daha genel tanımlamalar için örn: ekleme.
         List<Blog> GetBlogListWithCategory();
         List<Blog> GetBlogListByWriter(int id);
 

@@ -33,5 +33,10 @@ namespace CoreMvcProjectDemo.Controllers
         {
             return PartialView();
         }
+        [AllowAnonymous]
+        public PartialViewResult WriterFooterPartial()
+        {
+            return PartialView();
+        }
     }
 }
