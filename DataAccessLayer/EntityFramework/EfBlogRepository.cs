@@ -15,11 +15,19 @@ namespace DataAccessLayer.EntityFramework
     {
         public List<Blog> GetListWithCategory()
         {
-            using(var c = new Context())
+            using (var c = new Context())
             {
                 return c.Blogs.Include(x => x.Category).ToList(); //Bir bakarsın
             }
-             
+
+        }
+
+        public List<Blog> GetListWithCategoryByWriter(int id)
+        {
+            using (var c = new Context())
+            {
+                return c.Blogs.Include(x => x.Category).Where(x => x.WriterId == id).ToList(); //Bir bakarsın
+            }
         }
     }
 }

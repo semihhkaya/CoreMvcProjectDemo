@@ -5,11 +5,13 @@ using EntityLayer.Concrete;
 using FluentValidation.Results;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+//Ders 57de kalındı sanırım 56ya bi son bakarsın.
 namespace CoreMvcProjectDemo.Controllers
 {
     [AllowAnonymous]
@@ -23,7 +25,7 @@ namespace CoreMvcProjectDemo.Controllers
         }
         public IActionResult BlogReadAll(int id)
         {
-            ViewBag.i = id;
+            ViewBag.i = id; //ViewBag(?)
             var values = bm.GetBlogById(id);
             return View(values);
         }
@@ -34,8 +36,17 @@ namespace CoreMvcProjectDemo.Controllers
         }
 
         [HttpGet]
-        public IActionResult BlogAdd()
+        public IActionResult BlogAdd() 
         {
+            //Ders 56 tekrar bi bak.
+            CategoryManager cm = new CategoryManager(new EfCategoryRepository());
+            List<SelectListItem> categoryValues = (from x in cm.GetList()
+                                                   select new SelectListItem
+                                                   {
+                                                       Text = x.CategoryName,
+                                                       Value = x.CategoryId.ToString()
+                                                   }).ToList();
+            ViewBag.cv = categoryValues;                                      
             return View();
         }
 
