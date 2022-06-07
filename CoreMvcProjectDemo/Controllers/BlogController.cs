@@ -11,7 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-//Ders 57de kalındı sanırım 56ya bi son bakarsın.
+//Ders 57de kalındı sanırım 56ya bi son bakarsın
 namespace CoreMvcProjectDemo.Controllers
 {
     [AllowAnonymous]
