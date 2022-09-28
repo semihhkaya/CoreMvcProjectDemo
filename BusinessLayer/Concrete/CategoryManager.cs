@@ -18,7 +18,7 @@ namespace BusinessLayer.Concrete
             _categoryDal = categoryDal; //DependencyInjection //Ctor
         }
 
-        public Category GetById(int id)
+        public Category TGetById(int id)
         {
             return _categoryDal.GetById(id);
         }
