@@ -30,6 +30,7 @@ namespace CoreMvcProjectDemo.Controllers
             p.BlogId = 2;
             cm.AddComment(p);
             return PartialView();
+            
         }
         public PartialViewResult CommentListByBlog(int id)
         {
