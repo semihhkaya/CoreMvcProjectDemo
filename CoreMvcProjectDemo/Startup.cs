@@ -61,7 +61,7 @@ namespace CoreMvcProjectDemo
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-            app.UseStatusCodePagesWithReExecute("/ErrorPage/Error1","?code={0}");
+            app.UseStatusCodePagesWithReExecute("/ErrorPage/Error1", "?code={0}");
 
             //app.UseStatusCodePages(); //Durum kodlarý sayfalarýný kullanma emri. 404vs.
 
@@ -69,7 +69,7 @@ namespace CoreMvcProjectDemo
             app.UseStaticFiles();
 
             app.UseAuthentication();
-            
+
             app.UseSession(); //Session
 
             app.UseRouting();
@@ -78,6 +78,10 @@ namespace CoreMvcProjectDemo
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute(
+                    name: "areas",
+                    pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+            );
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");

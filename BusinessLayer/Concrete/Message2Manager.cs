@@ -20,7 +20,7 @@ namespace BusinessLayer.Concrete
 
         public List<Message2> GetInboxListByWriter(int id)
         {
-            return _messageDal.GetListAll(x => x.ReceiverId == id); //alıcının strin maili ile parametreden gelen p değeri eşitse mesajları listele yani yalnızca bize ait mesajları getirecek.
+            return _messageDal.GetListWithMessageByWriter(id); //alıcının strin maili ile parametreden gelen p değeri eşitse mesajları listele yani yalnızca bize ait mesajları getirecek.
         }
 
         public List<Message2> GetList()
@@ -40,7 +40,7 @@ namespace BusinessLayer.Concrete
 
         public Message2 TGetById(int id)
         {
-            throw new NotImplementedException();
+            return _messageDal.GetById(id);
         }
 
         public void TUpdate(Message2 t)
