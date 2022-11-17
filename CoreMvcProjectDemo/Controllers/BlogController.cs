@@ -34,8 +34,12 @@ namespace CoreMvcProjectDemo.Controllers
         }
         public IActionResult BlogListByWriter()
         {
-            var usermail = User.Identity.Name;
+            var username = User.Identity.Name;
+            //ViewBag.v = username;
+            var usermail = c.Users.Where(x => x.UserName == username).Select(y => y.Email).FirstOrDefault();
             var writerId = c.Writers.Where(x => x.WriterMail == usermail).Select(y => y.WriterId).FirstOrDefault();
+            ViewBag.v = writerId;
+            //var writerId = c.Writers.Where(x => x.WriterMail == usermail).Select(y => y.WriterId).FirstOrDefault();
             var values = bm.GetListWithCategoryByWriterBm(writerId);
             return View(values);
         }
@@ -44,7 +48,7 @@ namespace CoreMvcProjectDemo.Controllers
         public IActionResult BlogAdd()
         {
             //Ders 56 tekrar bi bak.
-            
+
             List<SelectListItem> categoryValues = (from x in cm.GetList()
                                                    select new SelectListItem
                                                    {
