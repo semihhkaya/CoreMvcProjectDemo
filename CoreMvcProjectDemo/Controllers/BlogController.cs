@@ -32,6 +32,7 @@ namespace CoreMvcProjectDemo.Controllers
             var values = bm.GetBlogById(id);
             return View(values);
         }
+
         public IActionResult BlogListByWriter()
         {
             var username = User.Identity.Name;
